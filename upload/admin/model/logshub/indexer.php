@@ -1,10 +1,10 @@
 <?php
 /**
- * @package		LogshubSearch
- * @author		Golden Development Ltd.
+ * @package	LogshubSearch
+ * @author	Golden Development Ltd.
  * @copyright	Copyright (c) 2019, Golden Development Ltd. (https://www.logshub.com/)
- * @license		https://opensource.org/licenses/GPL-3.0
- * @link		https://www.logshub.com
+ * @license	https://opensource.org/licenses/GPL-3.0
+ * @link	https://www.logshub.com
 */
 
 include_once DIR_SYSTEM . '/library/logshub-search-client/all.php';
@@ -99,10 +99,10 @@ class ModelLogshubIndexer extends Model
         $apiProducts = [];
         foreach ($products as $prod){
             if ($prod['image']) {
-				$img = $this->model_tool_image->resize($prod['image'], 200, 200);
-			} else {
-				$img = $this->model_tool_image->resize('placeholder.png', 200, 200);
-			}
+                $img = $this->model_tool_image->resize($prod['image'], 200, 200);
+            } else {
+                $img = $this->model_tool_image->resize('placeholder.png', 200, 200);
+            }
             // TODO: categories not working ??
             // $categories = $this->model_catalog_product->getCategories($prod['product_id']);
             // if (empty($categories[0]['category_id'])){
@@ -129,7 +129,7 @@ class ModelLogshubIndexer extends Model
 
     private function log($level, $message)
     {
-		$log = new Log('logshubsearch.log');
-		$log->write($level . ' ' . $message);
-	}
+        $log = new Log('logshubsearch.log');
+        $log->write($level . ' ' . $message);
+    }
 }
