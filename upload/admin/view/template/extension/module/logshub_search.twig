@@ -1,0 +1,80 @@
+{{ header }}{{ column_left }}
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="float-right">
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fas fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-light"><i class="fas fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header"><i class="fas fa-pencil-alt"></i> {{ text_edit }}</div>
+      <div class="card-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_enabled }}</label>
+            <div class="col-sm-10">
+              <select name="module_logshub_search_enabled" id="input-status" class="form-control">
+                {% if module_logshub_search_enabled %}
+                  <option value="1" selected="selected">{{ text_enabled }}</option>
+                  <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                  <option value="1">{{ text_enabled }}</option>
+                  <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+              <small>If disabled, no synchronization will be made.</small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_service_id }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_logshub_search_service_id" value="{{ module_logshub_search_service_id }}" placeholder="Paste UUID..." class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_api_url }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_logshub_search_api_url" value="{{ module_logshub_search_api_url }}" placeholder="Paste url..." class="form-control" />
+              <small>Eg. https://uk01.apisearch.logshub.com</small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_api_hash }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_logshub_search_api_hash" value="{{ module_logshub_search_api_hash }}" class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_api_secret }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_logshub_search_api_secret" value="{{ module_logshub_search_api_secret }}" class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="input-status">{{ entry_public_key }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_logshub_search_public_key" value="{{ module_logshub_search_public_key }}" class="form-control" />
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ footer }}
